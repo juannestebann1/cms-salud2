@@ -9,6 +9,7 @@
         </div>
       </div>
 <?php 
+echo $this->Attach[2];
 echo "
 <table class='table table-striped table-sm'>
 <thead>

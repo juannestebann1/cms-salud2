@@ -55,25 +55,25 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $this->BaseUrl('') ?>">
-              <span data-feather="home"></span>
+              <i class="fas fa-home"></i>
               Inicio
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $this->BaseUrl('acta') ?>">
-              <span data-feather="file"></span>
+              <i class="fas fa-file"></i>
               Actas
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $this->BaseUrl('productos') ?>">
-              <span data-feather="shopping-cart"></span>
+              <i class="fas fa-box-open"></i>
               Productos
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="users"></span>
+              <i class="fas fa-user-friends"></i>
               Usuarios
             </a>
           </li>

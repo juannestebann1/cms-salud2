@@ -1,4 +1,6 @@
-<h1>Productos</h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		<h1 class="h2">Productos</h1>
+      </div>
 <style type="text/css">
 	.trbp {
 		height: 300px;
@@ -31,6 +33,9 @@
     </div>
     <div class="col trbp">
 		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-search"></i></a>
+    </div>
+    <div class="col trbp">
+		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-boxes"></i></a>
     </div>
   </div>
 </div>
