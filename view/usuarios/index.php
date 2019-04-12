@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		<h1 class="h2">Actas</h1>
+		<h1 class="h2">Usuarios</h1>
       </div>
 <style type="text/css">
 	.trbp {
@@ -36,13 +36,16 @@
 <div class="container">
   <div class="row align-items-center">
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('acta/new') ?>"><i class="fas fa-plus"></i></a><br><span>Nuevo</span>
+		<a href="<?php echo $this->BaseUrl('usuarios/new') ?>"><i class="fas fa-plus"></i></a><br><span>Nuevo</span>
     </div>
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('acta/page') ?>"><i class="fas fa-list-ul"></i></a><br><span>Ver</span>
+		<a href="<?php echo $this->BaseUrl('usuarios/page') ?>"><i class="fas fa-list-ul"></i></a><br><span>Ver</span>
     </div>
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('acta/search') ?>"><i class="fas fa-search"></i></a><br><span>Buscar</span>
+		<a href="<?php echo $this->BaseUrl('usuarios/privilegios') ?>"><i class="fas fa-shield-alt"></i></a><br><span>privilegios</span>
+    </div>
+    <div class="col trbp">
+		<a href="<?php echo $this->BaseUrl('usuarios/search') ?>"><i class="fas fa-search"></i></a><br><span>Buscar</span>
     </div>
   </div>
 </div>

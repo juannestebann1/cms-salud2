@@ -6,9 +6,19 @@
 		height: 300px;
 		font-size: 60px;
 		text-align: center;
-		line-height: 300px;
 		-webkit-transition: background .5s; /* Safari */
   		transition: background .5s;
+	}
+
+	.trbp a {
+		line-height: 300px;
+	}
+
+	.trbp span{
+		position: relative;
+		top: -150px;
+		font-size: 20px;
+		line-height: -300px;
 	}
 
 	.trbp:hover{
@@ -26,16 +36,16 @@
 <div class="container">
   <div class="row align-items-center">
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('productos/new') ?>"><i class="fas fa-plus"></i></a>
+		<a href="<?php echo $this->BaseUrl('productos/new') ?>"><i class="fas fa-plus"></i></a><br><span>Nuevo</span>
     </div>
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('productos/page') ?>"><i class="fas fa-list-ul"></i></a>
+		<a href="<?php echo $this->BaseUrl('productos/page') ?>"><i class="fas fa-list-ul"></i></a><br><span>Ver</span>
     </div>
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-search"></i></a>
+		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-boxes"></i></a><br><span>Marcas</span>
     </div>
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-boxes"></i></a>
+		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-search"></i></a><br><span>Buscar</span>
     </div>
   </div>
 </div>
