@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.html|index\.php|uploads|assets|fonts|.well-known|img|css|robots\.txt|vcard|google1f95d5808b42b369\.html|google84b0119ba4f0e9f4\.html|sitemap\.xml|acme-challengea)
+RewriteRule ^(.*)$ /index\.php/$1 [L]

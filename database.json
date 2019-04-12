@@ -1,0 +1,25 @@
+{
+	"development":{
+		"host":"localhost",
+		"user":"root",
+		"password":"",
+		"dbname":"salud",
+		"charset":"utf8"
+	},
+
+	"test":{
+		"host":"test",
+		"user":"test",
+		"password":"test",
+		"dbname":"test",
+		"charset":"utf8"
+	},
+	
+	"production":{
+		"host":"localhost",
+		"user":"production",
+		"password":"production",
+		"dbname":"production",
+		"charset":"utf8"
+	}
+}

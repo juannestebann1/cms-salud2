@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Beta</title>
+	
+</head>
+<body>
+	<div id="Cuerpo"></div>
+</body>
+<script>
+  var x = document.getElementById('Cuerpo');
+  const url = 'http://ec2-34-202-189-13.compute-1.amazonaws.com/instagramer.php';
+  fetch(url,{  
+    method: 'POST',    
+    body: JSON.stringify({
+    Username: '3sense_technology',
+    Password: '1233sense',
+    data: 'cookies'
+  })
+})
+  .then((resp) => resp.json())
+  .then(function(data) {
+    let authors = data.results;
+    console.log(authors);
+    return authors.map(function(author) {
+      x.innerHTML = `${author.name.first} ${author.name.last}`;
+    })
+  })
+  .catch(function(error) {
+    console.log(error);
+  });   
+  </script>
+</html>
