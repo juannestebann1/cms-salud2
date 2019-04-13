@@ -39,7 +39,7 @@ class ProductosModel extends DataAccessLayer
 			$total_paginas = ceil($total_registros / $cantidad_resultados_por_pagina);
 
 			$db = $this->Link
-			          ->prepare("SELECT * FROM productos LEFT JOIN marca ON productos.ID_Marca = marca.ID_Marca  ORDER BY `ID_Producto` ASC LIMIT $inicia, 10");
+			          ->prepare("SELECT * FROM productos WHERE activo = 1 ORDER BY `ID_Producto` ASC LIMIT $inicia, 10");
 			$db->execute();
 
 			$r = $db->fetchAll(PDO::FETCH_OBJ);
@@ -53,42 +53,31 @@ class ProductosModel extends DataAccessLayer
 		return $rs;
 	}
 
-	public function Listar($tipo)
+	public function UpdateEdit($data)
 	{
 
 		try 
 		{
-			$this->jq->Config(
-				$this->Link->prepare("SELECT COUNT(*) FROM entrada WHERE Tipo = $tipo")
-					 ->fetchColumn()
-				);
+			$db = $this->Link
+			          ->prepare("UPDATE `productos` SET `Nombre_comercial` = '".$data->Nombre_comercial."', `Registro_sanitario` = '".$data->Registro_sanitario."', `Nombre_generico` = '".$data->Nombre_generico."', `Forma_farmaceutica` = '".$data->Forma_farmaceutica."', `presentacion_comercial` = '".$data->presentacion_comercial."', `concentracion` = '".$data->concentracion."', `estado_registro_sanitario` = '".$data->estado_registro_sanitario."', `clasificacion_riesgo` = '".$data->clasificacion_riesgo."', `vida_util` = '".$data->vida_util."', `marca` = '".$data->marca."', `activo` = '".$data->activo."' WHERE `productos`.`ID_Producto` = $data->ID_Producto;");
+			$db->execute();
 
-			$entradas = array();
-
-		    $sql = "SELECT * FROM entrada WHERE Tipo = $tipo ORDER BY " . $this->jq->sord;
-		    foreach ($this->Link->query($sql) as $row) {
-		        $entradas[] = (object) $row;
-		    }
-
-			$this->jq->DataSource($entradas);			
 		} catch (Exception $e) {
 			BaseHelper::ELog($e);
 		}
-
-		return $this->jq;
 	}
 
-	public function Obtener($id)
+	public function ConsultEdit($id)
 	{
 		$r = null;
 		
 		try 
 		{
 			$db = $this->Link
-			          ->prepare("SELECT * FROM entrada WHERE id = ? AND Eliminado = 0");
+			          ->prepare("SELECT * FROM productos WHERE ID_Producto = ?");
 			          
 
-			$db->execute(array($id));
+			$db->execute(array(intval($id)));
 			$r = $db->fetch(PDO::FETCH_OBJ);
 		} catch (Exception $e) {
 			BaseHelper::ELog($e);
@@ -97,23 +86,12 @@ class ProductosModel extends DataAccessLayer
 		return $r;
 	}
 
-	public function Registrar($data, $file = null)
+	public function Registrar($data)
 	{
 		try 
 		{
-			if(!is_null($file))
-			{
-				$_ext = explode('.', $file['name']);
-				$_nombre = date('ymdhis') . '.' . $_ext[count($_ext) - 1];
-
-				move_uploaded_file ( $file['tmp_name'], _BASE_FOLDER_ . 'uploads\\' . $_nombre );
-
-				$data->Imagen = $_nombre;
-			}
-
 			$this->Link->prepare(
-				"INSERT INTO entrada(Nombre, Tipo, Descripcion, Contenido, Tags, Imagen, Fecha)
-				VALUES (?, ?, ?, ?, ?, ?, ?)"
+				"INSERT INTO `productos` (`ID_Producto`, `Nombre_comercial`, `Registro_sanitario`, `Nombre_generico`, `Forma_farmaceutica`, `presentacion_comercial`, `concentracion`, `estado_registro_sanitario`, `clasificacion_riesgo`, `vida_util`, `Proveedores`, `marca`, `activo`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 			)->execute(
 				array(
 					$data->Nombre,
@@ -122,8 +100,8 @@ class ProductosModel extends DataAccessLayer
 					$data->Contenido, 
 					$data->Tags,
 					$data->Imagen,
-					BaseHelper::GetDateTime())
-				);
+				)
+			);
 
 			$this->rh->result = $this->Link->lastInsertId();
 
@@ -155,7 +133,7 @@ class ProductosModel extends DataAccessLayer
 		try 
 		{
 			$this->Link->prepare(
-				"DELETE FROM categoria WHERE id = ?"
+				"UPDATE productos SET activo = 0 WHERE ID_Producto = ?"
 			)->execute(
 				array(
 					$id)

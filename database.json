@@ -8,10 +8,10 @@
 	},
 
 	"test":{
-		"host":"test",
-		"user":"test",
-		"password":"test",
-		"dbname":"test",
+		"host":"localhost",
+		"user":"root",
+		"password":"",
+		"dbname":"salud2",
 		"charset":"utf8"
 	},
 	

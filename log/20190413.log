@@ -1,0 +1,7 @@
+
+[Sat, 13 Apr 2019 02:35:02 +0200] #0 C:\xampp\htdocs\salud\model\productosmodel.php(63): PDOStatement->execute()
+#1 C:\xampp\htdocs\salud\controller\Productoscontroller.php(76): ProductosModel->UpdateEdit(Object(stdClass))
+#2 C:\xampp\htdocs\salud\core\frontcontroller.php(97): ProductosController->Editar()
+#3 C:\xampp\htdocs\salud\index.php(25): FrontController->__CONSTRUCT()
+#4 {main}
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'sd, `Registro_sanitario` = 2017DM-0000426-R1, `Nombre_generico` = SISTEMA DESECH' at line 1

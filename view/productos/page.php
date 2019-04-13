@@ -40,7 +40,7 @@ for ($i = 0; $i <= count($this->Attach[0])-1; $i++) {
     echo "<td>" . $this->Attach[0][$i]->estado_registro_sanitario. "</td>";
     echo "<td>" . $this->Attach[0][$i]->clasificacion_riesgo. "</td>";
     echo "<td>" . $this->Attach[0][$i]->vida_util. "</td>";
-    echo "<td>" . $this->Attach[0][$i]->nombre. "</td>";
+    echo "<td>" . $this->Attach[0][$i]->marca. "</td>";
     echo "<td><a href='".$this->BaseUrl('productos/editar/'.$this->Attach[0][$i]->ID_Producto)."'><i class='fas fa-pencil-alt'></i></a></td>";
     echo "<td><a href='".$this->BaseUrl('productos/eliminar/'.$this->Attach[0][$i]->ID_Producto)."'><i class='far fa-trash-alt'></i></a></td>";
     echo "</tr>";
