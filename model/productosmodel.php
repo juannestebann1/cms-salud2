@@ -39,7 +39,7 @@ class ProductosModel extends DataAccessLayer
 			$total_paginas = ceil($total_registros / $cantidad_resultados_por_pagina);
 
 			$db = $this->Link
-			          ->prepare("SELECT * FROM productos WHERE activo = 1 ORDER BY `ID_Producto` ASC LIMIT $inicia, 10");
+			          ->prepare("SELECT * FROM productos ORDER BY `ID_Producto` ASC LIMIT $inicia, 10");
 			$db->execute();
 
 			$r = $db->fetchAll(PDO::FETCH_OBJ);
@@ -91,41 +91,26 @@ class ProductosModel extends DataAccessLayer
 		try 
 		{
 			$this->Link->prepare(
-				"INSERT INTO `productos` (`ID_Producto`, `Nombre_comercial`, `Registro_sanitario`, `Nombre_generico`, `Forma_farmaceutica`, `presentacion_comercial`, `concentracion`, `estado_registro_sanitario`, `clasificacion_riesgo`, `vida_util`, `Proveedores`, `marca`, `activo`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+				"INSERT INTO `productos` (`ID_Producto`, `Nombre_comercial`, `Registro_sanitario`, `Nombre_generico`, `Forma_farmaceutica`, `presentacion_comercial`, `concentracion`, `estado_registro_sanitario`, `clasificacion_riesgo`, `vida_util`, `marca`, `activo`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 			)->execute(
 				array(
-					$data->Nombre,
-					$data->Tipo,
-					$data->Descripcion, 
-					$data->Contenido, 
-					$data->Tags,
-					$data->Imagen,
+					$data->Nombre_comercial,
+					$data->Registro_sanitario,
+					$data->Nombre_generico, 
+					$data->Forma_farmaceutica, 
+					$data->presentacion_comercial,
+					$data->concentracion,
+					$data->estado_registro_sanitario,
+					$data->clasificacion_riesgo,
+					$data->vida_util,
+					$data->marca,
+					1
 				)
 			);
 
-			$this->rh->result = $this->Link->lastInsertId();
-
-			if(isset($data->Categorias))
-			{
-				foreach($data->Categorias as $c)
-				{
-					$this->Link->prepare(
-						"INSERT INTO entradacategoria(Entrada_id, Categoria_id)
-						VALUES (?, ?)"
-					)->execute(
-						array(
-							$this->rh->result,
-							$c)
-						);
-				}
-			}
-
-			$this->rh->SetResponse(true);
 		} catch (Exception $e) {
 			BaseHelper::ELog($e);
 		}
-
-		return $this->rh;
 	}
 
 	public function Eliminar($id)

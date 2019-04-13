@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2019 a las 02:44:03
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 5.6.31
+-- Tiempo de generación: 13-04-2019 a las 15:35:37
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.1.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -60,17 +60,6 @@ CREATE TABLE `detalle` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `marca`
---
-
-CREATE TABLE `marca` (
-  `ID_marca` int(11) NOT NULL,
-  `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `permisos`
 --
 
@@ -108,28 +97,44 @@ CREATE TABLE `productos` (
   `estado_registro_sanitario` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `clasificacion_riesgo` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `vida_util` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `ID_Proveedores` int(11) NOT NULL,
-  `ID_marca` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedores`
---
-
-CREATE TABLE `proveedores` (
-  `ID_Proveedores` int(11) NOT NULL,
-  `Nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL
+  `marca` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `activo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `proveedores`
+-- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `proveedores` (`ID_Proveedores`, `Nombre`) VALUES
-(1, 'fulano'),
-(2, 'detal');
+INSERT INTO `productos` (`ID_Producto`, `Nombre_comercial`, `Registro_sanitario`, `Nombre_generico`, `Forma_farmaceutica`, `presentacion_comercial`, `concentracion`, `estado_registro_sanitario`, `clasificacion_riesgo`, `vida_util`, `marca`, `activo`) VALUES
+(1, 'GUADSIDUASIODA ', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'jhgh', '5 AÑOS', '1', 1),
+(2, 'albertodasd ', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2028', 'IIa', '5 AÑOS', '3', 1),
+(3, 'AIRE REES 1 LITRO', '2017DM-0000426-R1as', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KITf', 'NO APLICA', '11/05/2027', 'IIa', '40 AÑOS', '3', 1),
+(4, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '3', 1),
+(5, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(6, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(7, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(8, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 0),
+(9, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(10, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(11, 'AIRE REES 1 LITRO', '2017DM-0000426-R1hbgvfcdxsxcfvygbunijmoknutyvrcex', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(12, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(13, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(14, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(15, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(16, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '3', 1),
+(17, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '25 AÑOS', '3', 1),
+(18, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '3', 1),
+(19, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(20, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(21, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', 'gftgyhiuygtf', 0),
+(22, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(23, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(24, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(25, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 0),
+(26, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 1),
+(27, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 0),
+(29, 'AIRE REES 1 LITRO', '2017DM-0000426-R1', 'SISTEMA DESECHABLE PARA ANESTESIA Y VENTILACIÓN', 'NO APLICA', 'KIT', 'NO APLICA', '11/05/2027', 'IIa', '5 AÑOS', '1', 0),
+(30, 'ha', 'ausadjkas', 'h', 'hh', 'hh', 'hhh', 'hhhh', 'jjj', 'j', 'hhhh', 1);
 
 -- --------------------------------------------------------
 
@@ -173,12 +178,6 @@ ALTER TABLE `detalle`
   ADD KEY `ID_productos` (`ID_productos`);
 
 --
--- Indices de la tabla `marca`
---
-ALTER TABLE `marca`
-  ADD PRIMARY KEY (`ID_marca`);
-
---
 -- Indices de la tabla `permisos`
 --
 ALTER TABLE `permisos`
@@ -188,15 +187,7 @@ ALTER TABLE `permisos`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`ID_Producto`),
-  ADD KEY `ID_Proveedores` (`ID_Proveedores`),
-  ADD KEY `ID_marca` (`ID_marca`);
-
---
--- Indices de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`ID_Proveedores`);
+  ADD PRIMARY KEY (`ID_Producto`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -214,36 +205,31 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `acta`
   MODIFY `ID_acta` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `detalle`
 --
 ALTER TABLE `detalle`
   MODIFY `ID_detalle` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `marca`
---
-ALTER TABLE `marca`
-  MODIFY `ID_marca` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
   MODIFY `ID_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  MODIFY `ID_Proveedores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -261,13 +247,6 @@ ALTER TABLE `acta`
 ALTER TABLE `detalle`
   ADD CONSTRAINT `detalle_ibfk_1` FOREIGN KEY (`ID_actas`) REFERENCES `acta` (`ID_acta`) ON UPDATE CASCADE,
   ADD CONSTRAINT `detalle_ibfk_2` FOREIGN KEY (`ID_productos`) REFERENCES `productos` (`ID_Producto`) ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`ID_Proveedores`) REFERENCES `proveedores` (`ID_Proveedores`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`ID_marca`) REFERENCES `marca` (`ID_marca`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuarios`

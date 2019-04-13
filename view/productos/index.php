@@ -42,9 +42,6 @@
 		<a href="<?php echo $this->BaseUrl('productos/page') ?>"><i class="fas fa-list-ul"></i></a><br><span>Ver</span>
     </div>
     <div class="col trbp">
-		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-boxes"></i></a><br><span>Marcas</span>
-    </div>
-    <div class="col trbp">
 		<a href="<?php echo $this->BaseUrl('productos/search') ?>"><i class="fas fa-search"></i></a><br><span>Buscar</span>
     </div>
   </div>
