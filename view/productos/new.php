@@ -9,7 +9,6 @@
         </div>
       </div>
 <form method="post">
-  <input type="hidden" name="token" value="sdasd">
   <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputEmail4">Registro sanitario</label>

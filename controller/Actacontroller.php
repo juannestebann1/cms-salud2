@@ -23,7 +23,18 @@
 			}
 		}
 
-		public function hola(){
-			echo "hola desde la vista de acta";
+		public function new(){
+			if (isset($_SESSION["user"])) {
+				$access = BaseHelper::Access($_SESSION["user"],$_SESSION["crear_acta"]);
+				if ($access === 'allow') {
+					
+				}elseif ($access === 'denied') {
+					$this->LoadView('denied');
+				}elseif ($access === 'redirect') {
+					header('Location: ' . "http://".$_SERVER['HTTP_HOST'].'/login/quit');
+				}
+			}else{
+				header('Location: ' . "http://".$_SERVER['HTTP_HOST'].'/login/quit');
+			}
 		}
 	}
